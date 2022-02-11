@@ -71,7 +71,7 @@ const bounsRPPerKillAssist = (place: number): number => {
 };
 
 const killAssistRP = (place: number, count: number): number => {
-    const bonus = bounsRPPerKillAssist(place) + 10;
+    const bonus = bounsRPPerKillAssist(place);
     const rp = (bonus + 10) * count;
     if (rp > 125) {
         return 125;
