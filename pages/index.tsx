@@ -201,6 +201,13 @@ const IndexPage = () => {
                     </tbody>
                 </table>
             </Container>
+            <Container>
+                <footer>
+                    <div style={{ textAlign: "center" }}>
+                        <a href="https://github.com/raduwen/apex-rp-calc">github</a>
+                    </div>
+                </footer>
+            </Container>
         </div>
     );
 }
