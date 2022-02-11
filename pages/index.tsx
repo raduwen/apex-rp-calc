@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head";
 
 const rankEntryCost = (rank: string): number => {
     switch (rank) {
@@ -96,6 +97,9 @@ const IndexPage = () => {
 
     return (
         <div>
+            <Head>
+                <title>Apex Legends : Season 12 RP Calculator</title>
+            </Head>
             <Container>
                 <h1>Apex Legends : Season 12 RP Calculator</h1>
                 <div>
