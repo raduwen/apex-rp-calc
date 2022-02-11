@@ -48,7 +48,7 @@ const placeRP = (place: number): number => {
     }
 }
 
-const bounsRPPerKillAssist = (place: number): number => {
+const bonusRPPerKillAssist = (place: number): number => {
     switch (place) {
         case 10:
         case 9:
@@ -71,7 +71,7 @@ const bounsRPPerKillAssist = (place: number): number => {
 };
 
 const killAssistRP = (place: number, count: number): number => {
-    const bonus = bounsRPPerKillAssist(place);
+    const bonus = bonusRPPerKillAssist(place);
     const rp = (bonus + 10) * count;
     if (rp > 125) {
         return 125;
