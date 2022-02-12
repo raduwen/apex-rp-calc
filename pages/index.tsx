@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Head from "next/head";
+import type { Rank, Place } from "@/lib/apex/calculator";
 import { calcRP } from "@/lib/apex/calculator";
 import { Container } from "@/components/Container";
 
 const IndexPage = () => {
-  const [rank, setRank] = useState("none");
-  const [place, setPlace] = useState(20);
+  const [rank, setRank] = useState<Rank>("none");
+  const [place, setPlace] = useState<Place>(20);
   const [kaCount, setKACount] = useState(0);
 
   return (
@@ -17,7 +18,7 @@ const IndexPage = () => {
         <h1>Apex Legends : Season 12 RP Calculator</h1>
         <div>
           Rank:
-          <select onChange={(e) => { setRank(e.currentTarget.value) }}>
+          <select onChange={(e) => { setRank(e.currentTarget.value as Rank) }}>
             <option value="none">-</option>
             <option value="bronze">Bronze</option>
             <option value="silver">Silver</option>
@@ -30,7 +31,7 @@ const IndexPage = () => {
         </div>
         <div>
           Place:
-          <input min={1} max={20} type="number" value={place} onChange={(e) => { setPlace(parseInt(e.currentTarget.value)) }} />
+          <input min={1} max={20} type="number" value={place} onChange={(e) => { setPlace(parseInt(e.currentTarget.value) as Place) }} />
         </div>
         <div>
           Kill/Assist Count:
