@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
-import { calcRP } from "../lib/apex/calculator";
-import { Container } from "../components/Container";
+import { calcRP } from "@/lib/apex/calculator";
+import { Container } from "@/components/Container";
 
 const IndexPage = () => {
   const [rank, setRank] = useState("none");
