@@ -1,12 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import { calcRP } from "../lib/apex/calculator";
-
-const Container = ({ children }) => {
-  return (
-    <div style={{ minWidth: "360px", maxWidth: "768px", margin: "0 auto 72px auto" }}>{children}</div>
-  )
-}
+import { Container } from "../components/Container";
 
 const IndexPage = () => {
   const [rank, setRank] = useState("none");
