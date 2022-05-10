@@ -1,120 +1,25 @@
 import { useState } from "react";
 import Head from "next/head";
-import type { Rank, Place } from "@/lib/apex/calculator";
-import { calcRP } from "@/lib/apex/calculator";
 import { Container } from "@/components/Container";
+import { S12 } from "@/components/S12";
 
 const IndexPage = () => {
-  const [rank, setRank] = useState<Rank>("none");
-  const [place, setPlace] = useState<Place>(20);
-  const [kaCount, setKACount] = useState(0);
+  const [season, setSeason] = useState(12);
 
   return (
     <div>
       <Head>
-        <title>Apex Legends : Season 12 RP Calculator</title>
+        <title>Apex Legends : Season ${season} RP Calculator</title>
       </Head>
-      <Container>
-        <h1>Apex Legends : Season 12 RP Calculator</h1>
-        <div>
-          Rank:
-          <select onChange={(e) => { setRank(e.currentTarget.value as Rank) }}>
-            <option value="none">-</option>
-            <option value="bronze">Bronze</option>
-            <option value="silver">Silver</option>
-            <option value="gold">Gold</option>
-            <option value="platinum">Platinum</option>
-            <option value="diamond">Diamond</option>
-            <option value="master">Master</option>
-            <option value="predator">Predator</option>
-          </select>
-        </div>
-        <div>
-          Place:
-          <input min={1} max={20} type="number" value={place} onChange={(e) => { setPlace(parseInt(e.currentTarget.value) as Place) }} />
-        </div>
-        <div>
-          Kill/Assist Count:
-          <input min={0} max={57} type="number" value={kaCount} onChange={(e) => { setKACount(parseInt(e.currentTarget.value)) }} />
-        </div>
-        <div>
-          <strong>RP</strong>: {calcRP(rank, place, kaCount)} (Tier Delta 0)
-        </div>
-      </Container>
-
-      <Container>
-        <h2>Points Awarded</h2>
-        <table>
-          <tbody>
-            <tr>
-              <th>Place</th>
-              <td>14+</td>
-              <td>13</td>
-              <td>12</td>
-              <td>11</td>
-              <td>10</td>
-              <td>9</td>
-              <td>8</td>
-              <td>7</td>
-              <td>6</td>
-              <td>5</td>
-              <td>4</td>
-              <td>3</td>
-              <td>2</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th>RP</th>
-              <td>0</td>
-              <td colSpan={3}>5</td>
-              <td colSpan={2}>10</td>
-              <td colSpan={2}>20</td>
-              <td>30</td>
-              <td>45</td>
-              <td>55</td>
-              <td>70</td>
-              <td>95</td>
-              <td>125</td>
-            </tr>
-            <tr>
-              <th>Bonus RP per Kill/Assist</th>
-              <td colSpan={4}>0</td>
-              <td colSpan={5}>1</td>
-              <td colSpan={2}>5</td>
-              <td>8</td>
-              <td>11</td>
-              <td>15</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div style={{ marginBottom: "8px" }} />
-
-        <table>
-          <tbody>
-            <tr>
-              <th>Tier Delta</th>
-              <td>-3</td>
-              <td>-2</td>
-              <td>-1</td>
-              <td>0</td>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <th>Kill/Assit RP</th>
-              <td>3</td>
-              <td>5</td>
-              <td>8</td>
-              <td>10</td>
-              <td>12</td>
-              <td>15</td>
-              <td>20</td>
-            </tr>
-          </tbody>
-        </table>
-      </Container>
+      <div style={{position: 'fixed', right: 4, top: 4}}>
+        <select onChange={((e) => {
+          setSeason(parseInt(e.currentTarget.value));
+        })} value={season}>
+          <option value={12}>Season 12</option>
+          <option value={13}>Season 13</option>
+        </select>
+      </div>
+      {season === 12 && <S12 />}
       <Container>
         <footer>
           <div style={{ textAlign: "center" }}>
