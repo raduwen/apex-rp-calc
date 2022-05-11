@@ -111,7 +111,7 @@ const S12 = () => {
           </tbody>
         </table>
       </Container>
-      </>
+    </>
   );
 }
 
