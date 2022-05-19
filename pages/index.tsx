@@ -10,7 +10,7 @@ const IndexPage = () => {
   return (
     <div>
       <Head>
-        <title>Apex Legends : Season ${season} RP Calculator</title>
+        <title>Apex Legends : Season {season} RP Calculator</title>
       </Head>
       <div style={{position: 'fixed', right: 4, top: 4}}>
         <select onChange={((e) => {
