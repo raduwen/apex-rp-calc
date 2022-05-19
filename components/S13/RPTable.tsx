@@ -17,7 +17,15 @@ const hs = {
 const cs = {
   color: 'white',
   backgroundColor: '#0b5394'
-}
+};
+
+const plus = {
+  backgroundColor: '#dfffdf'
+};
+
+const minus = {
+  backgroundColor: '#ffdfdf'
+};
 
 const RPTable = ({rank, division, inPlace, inKACount}) => {
   return (
@@ -38,11 +46,17 @@ const RPTable = ({rank, division, inPlace, inKACount}) => {
                 <th style={cs}>{kill}</th>
                 {[14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((place) => {
                   const it = kill === inKACount && (place === inPlace || place === 14 && inPlace >= 14);
+                  const rp = calcRP(rank as Rank, division as Division, place as Place, kill);
+                  let style = {
+                    color: it ? "red" : "black",
+                    fontWeight: it ? "bold" : undefined,
+                  };
+                  if (rp > 0)
+                    style = Object.assign(style, plus);
+                  else if (rp < 0)
+                    style = Object.assign(style, minus);
                   return (
-                    <td style={{
-                      color: it ? "red" : "black",
-                      fontWeight: it ? "bold" : undefined,
-                    }}>{calcRP(rank as Rank, division as Division, place as Place, kill)}</td>
+                    <td style={style}>{rp}</td>
                   )
                 })}
               </tr>
