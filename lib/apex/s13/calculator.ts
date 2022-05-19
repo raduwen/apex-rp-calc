@@ -90,11 +90,24 @@ const bonusRPPerKillAssist = (place: Place): number => {
 };
 
 const killAssistRP = (place: Place, count: number): number => {
-  return bonusRPPerKillAssist(place) * count;
+  const base = bonusRPPerKillAssist(place);
+  let rp = 0;
+
+  rp += count > 3 ? base * 3 : base * count;
+  count -= 3;
+  if (count > 0) {
+    rp += count > 3 ? base * 0.8 * 3 : base * 0.8 * count;
+    count -= 3;
+  }
+  if (count > 0) {
+    rp += count * base * 0.2;
+  }
+
+  return rp;
 };
 
 const calcRP = (rank: Rank, division: Division, place: Place, killAssist: number): number => {
-  return rankEntryCost(rank, division) + placeRP(place) + killAssistRP(place, killAssist);
+  return Math.floor(rankEntryCost(rank, division) + placeRP(place) + killAssistRP(place, killAssist));
 };
 
 export type { Rank, Division, Place };

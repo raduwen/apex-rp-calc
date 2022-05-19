@@ -8,6 +8,7 @@ const S13 = () => {
   const [division, setDivision] = useState<Division | undefined>(4);
   const [place, setPlace] = useState<Place>(20);
   const [kaCount, setKACount] = useState(0);
+  const [pCount, setPCount] = useState(0);
 
   return (
     <>
@@ -55,7 +56,11 @@ const S13 = () => {
           <input min={0} max={57} type="number" value={kaCount} onChange={(e) => { setKACount(parseInt(e.currentTarget.value)) }} />
         </div>
         <div>
-          <strong>RP</strong>: {calcRP(rank, division, place, kaCount)} (Tier Delta 0)
+          Participant Count:
+          <input min={0} max={57} type="number" value={pCount} onChange={(e) => { setPCount(parseInt(e.currentTarget.value)) }}/>
+        </div>
+        <div>
+          <strong>RP</strong>: {calcRP(rank, division, place, kaCount + pCount / 2)} (Tier Delta 0)
         </div>
       </Container>
 
