@@ -3,9 +3,10 @@ import Head from "next/head";
 import { Container } from "@/components/Container";
 import { S12 } from "@/components/S12";
 import { S13 } from "@/components/S13";
+import { S14 } from "@/components/S14";
 
 const IndexPage = () => {
-  const [season, setSeason] = useState(13);
+  const [season, setSeason] = useState(14);
 
   return (
     <div>
@@ -16,12 +17,14 @@ const IndexPage = () => {
         <select onChange={((e) => {
           setSeason(parseInt(e.currentTarget.value));
         })} value={season}>
+          <option value={14}>Season 14</option>
           <option value={13}>Season 13</option>
           <option value={12}>Season 12</option>
         </select>
       </div>
       {season === 12 && <S12 />}
       {season === 13 && <S13 />}
+      {season === 14 && <S14 />}
       <Container>
         <footer>
           <div style={{ textAlign: "center" }}>
