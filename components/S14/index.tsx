@@ -16,7 +16,7 @@ const S14 = () => {
   return (
     <>
       <Container>
-        <h1>Apex Legends : Season 13 RP Calculator</h1>
+        <h1>Apex Legends : Season 14 RP Calculator</h1>
         <RPForm
           rank={rank}
           place={place}
