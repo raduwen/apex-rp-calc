@@ -2,7 +2,7 @@ type Rank = "bronze" | "silver" | "gold" | "platinum" | "diamond" | "master" | "
 type Division = 4 | 3 | 2 | 1;
 
 const rankEntryCost = (rank: Rank, division?: Division): number => {
-  let cost = -20;
+  let cost = -10;
   switch (rank) {
     case "silver":
       cost += -12;
